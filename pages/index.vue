@@ -1,21 +1,35 @@
 <template>
   <div class="container">
-    <div></div>
+    <h1>Dashboard</h1>
+    <Stats />
   </div>
 </template>
 
 <script>
-export default {}
+import Stats from '../components/Dashboard/Stats.vue'
+export default {
+  name: 'Dashboard',
+  layout: 'default',
+  components: {
+    Stats,
+  },
+}
 </script>
 
 <style>
+h1 {
+  max-height: 100px;
+  margin-top: 10px;
+}
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: start;
+  flex-direction: row;
+  /* align-items: center; */
+  /* text-align: center; */
+  flex-wrap: wrap;
 }
 
 .title {
