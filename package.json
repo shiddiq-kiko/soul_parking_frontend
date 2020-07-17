@@ -20,8 +20,11 @@
     "@nuxtjs/axios": "^5.11.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
+    "chart.js": "^2.9.3",
+    "hchs-vue-charts": "^1.2.8",
     "nuxt": "^2.13.0",
-    "nuxt-fontawesome": "^0.4.0"
+    "nuxt-fontawesome": "^0.4.0",
+    "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",

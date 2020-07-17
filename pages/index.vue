@@ -1,17 +1,22 @@
 <template>
   <div class="container">
     <h1>Dashboard</h1>
-    <Stats />
+    <div class="card-group">
+      <Stats />
+      <Chart />
+    </div>
   </div>
 </template>
 
 <script>
 import Stats from '../components/Dashboard/Stats.vue'
+import Chart from '../components/Dashboard/Chart.vue'
 export default {
   name: 'Dashboard',
   layout: 'default',
   components: {
     Stats,
+    Chart,
   },
 }
 </script>
@@ -24,7 +29,7 @@ h1 {
 .container {
   margin: 0 auto;
   /* min-height: 100vh; */
-  display: flex;
+  display: flexbox;
   justify-content: start;
   flex-direction: row;
   /* align-items: center; */
@@ -52,5 +57,12 @@ h1 {
 
 .links {
   padding-top: 15px;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 </style>
