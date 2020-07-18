@@ -6,6 +6,7 @@
         footer-tag="small"
         footer-class="footer"
         footer-text-variant="muted"
+        class="card"
       >
         <div class="card-body2">
           <div class="card-text">
@@ -44,7 +45,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   /* max-height: 100px; */
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .card-group {
@@ -70,6 +71,11 @@ export default {
 
 .footer {
   background-color: rgba(255, 157, 0, 0.253);
+}
+
+.card {
+  width: 200px;
+  max-width: 200px;
 }
 
 b-card-text {

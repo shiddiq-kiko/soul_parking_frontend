@@ -12,7 +12,7 @@ import Pemasukan from './Pemasukan.vue'
 import Membership from './Membership.vue'
 
 export default {
-  name: 'Bar Chart',
+  name: 'Bar',
   components: { Pemasukan, Membership },
 }
 </script>

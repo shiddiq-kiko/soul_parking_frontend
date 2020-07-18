@@ -10,8 +10,6 @@
       </div>
 
       <div class="card-img-bottom">
-        <!-- <canvas id="pemasukan" count="2" /> -->
-
         <BarChart
           :data="barChartData"
           :options="{ maintainAspectRatio: false }"
@@ -28,6 +26,7 @@ import BarChart from './Bar.js'
 
 export default {
   name: 'Pemasukan',
+  components: { BarChart },
   data() {
     return {
       barChartData: {
@@ -42,7 +41,6 @@ export default {
       },
     }
   },
-  components: { BarChart },
   computed: {
     Pemasukan() {
       return Charts[0]
@@ -60,6 +58,10 @@ export default {
   /* margin-top: 5px; */
 }
 
+.card {
+  width: 40vw;
+  min-width: 250px;
+}
 h6 {
   font-size: small;
   color: green;

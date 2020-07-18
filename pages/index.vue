@@ -4,19 +4,22 @@
     <div class="card-group">
       <Stats />
       <Chart />
+      <PieChart />
     </div>
   </div>
 </template>
 
 <script>
-import Stats from '../components/Dashboard/Stats.vue'
-import Chart from '../components/Dashboard/Chart.vue'
+import Stats from '@/components/Dashboard/Stats.vue'
+import Chart from '@/components/Dashboard/Chart.vue'
+import PieChart from '@/components/Dashboard/PieChart.vue'
 export default {
   name: 'Dashboard',
   layout: 'default',
   components: {
     Stats,
     Chart,
+    PieChart,
   },
 }
 </script>

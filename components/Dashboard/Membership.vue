@@ -10,8 +10,6 @@
       </div>
 
       <div class="card-img-bottom">
-        <!-- <canvas id="membership" count="2" /> -->
-
         <BarChart
           :data="barChartData"
           :options="{ maintainAspectRatio: false }"
@@ -28,6 +26,7 @@ import BarChart from './Bar.js'
 
 export default {
   name: 'Membership',
+  components: { BarChart },
   data() {
     return {
       barChartData: {
@@ -42,7 +41,6 @@ export default {
       },
     }
   },
-  components: { BarChart },
   computed: {
     Member() {
       return Charts[1]
@@ -63,5 +61,9 @@ export default {
 h6 {
   font-size: small;
   color: sienna;
+}
+.card {
+  width: 40vw;
+  min-width: 250px;
 }
 </style>
