@@ -21,6 +21,11 @@ export default {
     Chart,
     PieChart,
   },
+  head() {
+    return {
+      title: 'Dashboard',
+    }
+  },
 }
 </script>
 
@@ -67,6 +72,5 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="accordion__item">
+  <li class="accordion__item">
     <div
       class="accordion__trigger"
       :class="{ accordion__trigger_active: visible }"
@@ -23,7 +23,7 @@
         </ul>
       </div>
     </transition>
-  </div>
+  </li>
 </template>
 
 <script>
@@ -63,19 +63,15 @@ export default {
 
 <style scoped>
 .accordion__item {
-  width: auto;
   cursor: pointer;
   padding: 10px 20px 10px 40px;
   border-bottom: 1px solid #ebebeb;
   position: relative;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 0;
 }
 
 .accordion__trigger {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .accordion-enter-active,

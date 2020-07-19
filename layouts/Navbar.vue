@@ -2,31 +2,39 @@
   <div>
     <!-- Navbar -->
     <b-navbar toggleable="lg" type="dark" variant="secondary">
-      <b-navbar-brand href="#"
-        ><img
+      <!-- <b-navbar-brand href="#">
+        <img
           src="@/assets/soulparking.png"
           alt="soulparking"
           style="max-height: 50px;"
-      /></b-navbar-brand>
+      /></b-navbar-brand> -->
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#" disabled=""></b-nav-item>
+          <b-nav-item href="#" disabled="">
+            <b-card
+              border-variant="transparent"
+              bg-variant="transparent"
+              style="width: 200px; height: 50px;"
+            ></b-card
+          ></b-nav-item>
           <b-nav-item v-b-toggle.sidebar-1 href="#">Menu</b-nav-item>
         </b-navbar-nav>
+      </b-collapse>
 
-        <b-navbar-nav class="ml-auto">
-          <b-nav-form>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item>
+          <b-form class="b-form">
             <div>
               <b-form-select
                 size="sm"
                 class="mr-sm-2"
                 placeholder="DKI Jakarta"
                 :options="['DKI Jakarta', 'Bandung', 'Surabaya']"
-                style="margin-right: 0;"
-              ></b-form-select>
+                style="margin-right: 0; max-width: 100px;"
+              />
               <b-button
                 size="sm"
                 class="my-2 my-sm-0 text-light"
@@ -35,35 +43,35 @@
                 >+</b-button
               >
             </div>
-          </b-nav-form>
+          </b-form>
+        </b-nav-item>
 
-          <b-nav-item>
-            <b-card
-              class="user"
-              border-variant="transparent"
-              bg-variant="transparent"
-              style="max-height: 30px; padding: 0;"
-            >
-              <div class="card gaskir-list">
-                <div class="img">
-                  <img
-                    src="~/assets/img-person-placeholder.jpg"
-                    alt=""
-                    style="border-radius: 50%; height: 22px; width: 22px;"
-                  />
-                </div>
-
-                <div class="text" style="max-height: 30px;">
-                  <p class="text-light" style="font-weight: bold;">
-                    Husein Damar
-                  </p>
-                  <p>Super Admin</p>
-                </div>
+        <b-nav-item>
+          <b-card
+            class="user"
+            border-variant="transparent"
+            bg-variant="transparent"
+            style="max-height: 30px; padding: 0;"
+          >
+            <div class="card gaskir-list">
+              <div class="img">
+                <img
+                  src="~/assets/img-person-placeholder.jpg"
+                  alt=""
+                  style="border-radius: 50%; height: 22px; width: 22px;"
+                />
               </div>
-            </b-card>
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
+
+              <div class="text" style="max-height: 30px;">
+                <p class="text-light" style="font-weight: bold;">
+                  Husein Damar
+                </p>
+                <p style="font-size: 10px;">Super Admin</p>
+              </div>
+            </div>
+          </b-card>
+        </b-nav-item>
+      </b-navbar-nav>
     </b-navbar>
 
     <!-- Sidebar -->
@@ -202,24 +210,34 @@ export default {
   margin: 5px;
 }
 
-.text {
+p {
+  margin-bottom: 0;
+  text-align: left;
+}
+/* .text {
   display: flex;
   text-align: left;
   flex-direction: column;
   font-size: small;
   margin: 0;
-}
+} */
 
-.accordion {
+/* .accordion {
   width: auto;
   display: flex;
   justify-content: flex-start;
   text-align: left;
+} */
+
+.nav-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
-.nav {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
+.b-form {
+  margin: 0;
+  width: 150px;
 }
 </style>

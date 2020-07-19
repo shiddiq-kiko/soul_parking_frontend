@@ -1,9 +1,7 @@
 <template>
-  <!-- <ul class="accordion"> -->
-  <div>
+  <ul class="accordion">
     <slot></slot>
-  </div>
-  <!-- </ul> -->
+  </ul>
 </template>
 
 <script>
