@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Pemasukan from './Pemasukan.vue'
-import Membership from './Membership.vue'
+import Pemasukan from './Bar/Pemasukan.vue'
+import Membership from './Bar/Membership.vue'
 
 export default {
   name: 'Bar',

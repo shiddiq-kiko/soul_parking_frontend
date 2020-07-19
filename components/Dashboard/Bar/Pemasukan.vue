@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import Charts from '../../assets/charts'
 import BarChart from './Bar.js'
+import Charts from '@/assets/charts'
 
 export default {
   name: 'Pemasukan',

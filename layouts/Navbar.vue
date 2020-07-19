@@ -1,52 +1,225 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <!-- Navbar -->
+    <b-navbar toggleable="lg" type="dark" variant="secondary">
+      <b-navbar-brand href="#"
+        ><img
+          src="@/assets/soulparking.png"
+          alt="soulparking"
+          style="max-height: 50px;"
+      /></b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          <b-nav-item href="#" disabled=""></b-nav-item>
+          <b-nav-item v-b-toggle.sidebar-1 href="#">Menu</b-nav-item>
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
-              >Search</b-button
-            >
+            <div>
+              <b-form-select
+                size="sm"
+                class="mr-sm-2"
+                placeholder="DKI Jakarta"
+                :options="['DKI Jakarta', 'Bandung', 'Surabaya']"
+                style="margin-right: 0;"
+              ></b-form-select>
+              <b-button
+                size="sm"
+                class="my-2 my-sm-0 text-light"
+                variant="warning"
+                style="margin-left: 0;"
+                >+</b-button
+              >
+            </div>
           </b-nav-form>
 
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
+          <b-nav-item>
+            <b-card
+              class="user"
+              border-variant="transparent"
+              bg-variant="transparent"
+              style="max-height: 30px; padding: 0;"
+            >
+              <div class="card gaskir-list">
+                <div class="img">
+                  <img
+                    src="~/assets/img-person-placeholder.jpg"
+                    alt=""
+                    style="border-radius: 50%; height: 22px; width: 22px;"
+                  />
+                </div>
 
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template v-slot:button-content>
-              <em>User</em>
-            </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
+                <div class="text" style="max-height: 30px;">
+                  <p class="text-light" style="font-weight: bold;">
+                    Husein Damar
+                  </p>
+                  <p>Super Admin</p>
+                </div>
+              </div>
+            </b-card>
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+
+    <!-- Sidebar -->
+    <b-sidebar id="sidebar-1" shadow width="200px">
+      <b-sidebar-header>
+        <img src="@/assets/soulparking.png" alt="soulparking" />
+      </b-sidebar-header>
+      <div class="px-3 py-2">
+        <nav class="mb-3">
+          <b-nav class="text" vertical role="tablist">
+            <b-nav-item class="accordion">
+              <!-- Accordion -->
+              <accordion>
+                <nuxt-link to="/"
+                  ><accordion-item>
+                    <template slot="accordion-trigger">
+                      <font-awesome-icon
+                        :icon="['fab', 'stripe-s']"
+                        style="color: #141f1f; margin-right: 5px;"
+                      />
+                      <p>Dashboard</p>
+                    </template>
+                    <template slot="accordion-content">
+                    </template> </accordion-item
+                ></nuxt-link>
+
+                <accordion-item>
+                  <template slot="accordion-trigger">
+                    <font-awesome-icon
+                      :icon="['fas', 'clipboard']"
+                      style="color: #141f1f; margin-right: 5px;"
+                    />
+                    <p>Pelaporan</p>
+                  </template>
+                  <template slot="accordion-content">
+                    <p>Laporan Trafik</p>
+                    <p>Laporan Pendapatan</p>
+                    <p>Pengaduan</p>
+                    <p>Laporan Member</p>
+                    <p>Laporan Gaskir</p>
+                    <p>Laporan Aplikasi</p>
+                  </template>
+                </accordion-item>
+
+                <accordion-item>
+                  <template slot="accordion-trigger">
+                    <font-awesome-icon
+                      :icon="['fas', 'cog']"
+                      style="color: #141f1f; margin-right: 5px;"
+                    />
+                    <p>Pengaturan Lokasi</p>
+                  </template>
+                  <template slot="accordion-content">
+                    <p>Info Lokir</p>
+                    <p>Tarif</p>
+                    <nuxt-link to="/gaskir"><p>Gaskir</p></nuxt-link>
+                    <p>Shift</p>
+                    <p>Produk</p>
+                    <p>Pemutihan Kendaraan</p>
+                    <p>Aktivasi Member</p>
+                    <p>Pengaturan Pengguna</p>
+                  </template>
+                </accordion-item>
+
+                <accordion-item>
+                  <template slot="accordion-trigger">
+                    <font-awesome-icon
+                      :icon="['fas', 'user']"
+                      style="color: #141f1f; margin-right: 5px;"
+                    />
+                    <p>Sistem Admin</p>
+                  </template>
+                  <template slot="accordion-content">
+                    <p>Lokir</p>
+                    <p>Pengguna</p>
+                    <p>Hardware</p>
+                  </template>
+                </accordion-item>
+              </accordion>
+            </b-nav-item>
+            <b-nav-item>
+              <div class="nav">
+                <font-awesome-icon
+                  :icon="['fas', 'user-circle']"
+                  style="color: #141f1f; margin-right: 5px;"
+                />
+                <p>Sistem Admin</p>
+              </div>
+            </b-nav-item>
+            <b-nav-item>
+              <div class="nav">
+                <font-awesome-icon
+                  :icon="['fas', 'door-open']"
+                  style="color: #141f1f; margin-right: 5px;"
+                />
+                <p>Keluar</p>
+              </div>
+            </b-nav-item>
+          </b-nav>
+        </nav>
+      </div>
+    </b-sidebar>
   </div>
 </template>
 
 <script>
-export default {}
+import Accordion from './accordion'
+import AccordionItem from './accordion-item'
+
+export default {
+  name: 'Navbar',
+  components: {
+    Accordion,
+    AccordionItem,
+  },
+}
 </script>
 
-<style></style>
+<style scoped>
+.user {
+  height: auto;
+  width: 100px;
+  max-height: 30px;
+  /* max-width: 100px; */
+}
+.card {
+  height: 30px;
+  width: 150px;
+  max-height: 30px;
+  background: transparent;
+  border: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.text {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  font-size: small;
+  margin: 0;
+}
+
+.accordion {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+</style>

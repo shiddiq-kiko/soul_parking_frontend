@@ -35,7 +35,8 @@ h1 {
   display: flexbox;
   justify-content: start;
   flex-direction: row;
-  /* align-items: center; */
+  align-items: center;
+  justify-content: center;
   /* text-align: center; */
   flex-wrap: wrap;
 }

@@ -15,11 +15,6 @@
             }"
             style="max-height: 150px;"
           />
-          <!-- <BarChart
-          :data="barChartData"
-          :options="{ maintainAspectRatio: false }"
-          style="max-height: 180px;"
-        /> -->
         </div>
       </div>
     </div>

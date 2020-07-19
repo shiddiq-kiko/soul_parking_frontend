@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Methods from './Methods.vue'
-import Trafic from './Trafic.vue'
+import Methods from './Doughnut/Methods.vue'
+import Trafic from './Pie/Trafic.vue'
 export default {
   name: 'Pie',
   components: { Methods, Trafic },

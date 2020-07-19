@@ -1,15 +1,20 @@
 <template>
   <div>
     <Navbar />
-    <Nuxt />
+    <div class="body bg-light">
+      <Nuxt />
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from './Navbar.vue'
+import Footer from './Footer.vue'
 export default {
   components: {
     Navbar,
+    Footer,
   },
 }
 </script>
