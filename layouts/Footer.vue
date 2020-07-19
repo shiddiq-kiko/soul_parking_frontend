@@ -7,6 +7,7 @@
     ></b-card>
     <img src="@/assets/soulparking.png" alt="soulparking" />
     <p>Copyright 2020</p>
+    <!-- <p>{{ todos }}</p> -->
   </div>
 </template>
 

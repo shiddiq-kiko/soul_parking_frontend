@@ -6,7 +6,7 @@
       @click="open"
     >
       <!-- This slot will handle the title/header of the accordion and is the part you click on -->
-      <slot name="accordion-trigger"></slot>
+      <slot name="accordion-trigger" class="trigger"></slot>
     </div>
 
     <transition
@@ -71,7 +71,7 @@ export default {
 
 .accordion__trigger {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .accordion-enter-active,
@@ -85,5 +85,10 @@ export default {
 .accordion-leave-to {
   height: 0 !important;
   opacity: 0;
+}
+
+.trigger {
+  display: flex;
+  justify-content: flex-start;
 }
 </style>

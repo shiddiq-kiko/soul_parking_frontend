@@ -1,37 +1,88 @@
 <template>
   <div class="gaskir">
     <b-card class="list" title="List Petugas Parkir">
-      <div v-for="gaskir in Gaskir" :key="gaskir.name" class="card-group">
-        <div class="card gaskir-list" style="border-radius: 10px;">
-          <div class="img">
-            <img
-              src="~/assets/img-person-placeholder.jpg"
-              alt=""
-              style="border-radius: 50%; height: 50px; width: 50px;"
-            />
-          </div>
+      <!-- if window width >= 1024 -->
+      <div v-if="windowWidth >= 1024">
+        <div v-for="gaskir in Gaskir" :key="gaskir.name" class="card-group">
+          <div class="card gaskir-list" style="border-radius: 10px;">
+            <div class="img">
+              <img
+                src="~/assets/img-person-placeholder.jpg"
+                alt=""
+                style="border-radius: 50%; height: 50px; width: 50px;"
+              />
+            </div>
 
-          <div class="text">
-            <p style="font-weight: bold;">{{ gaskir.name }}</p>
-            <p>
-              <font-awesome-icon
-                :icon="['fas', 'mobile-alt']"
-                style="color: #ffd633;"
-              />
-              {{ gaskir.notelp }}
-            </p>
-            <p v-if="gaskir.status === true">
-              <font-awesome-icon
-                :icon="['fas', 'check-circle']"
-                style="color: green;"
-              />
-              Aktif
-            </p>
-            <p v-else-if="gaskir.status === false" style="color: gray;">
-              <font-awesome-icon :icon="['fas', 'check-circle']" />
-              Tidak Aktif
-            </p>
+            <div class="text">
+              <p style="font-weight: bold;">{{ gaskir.name }}</p>
+              <p>
+                <font-awesome-icon
+                  :icon="['fas', 'mobile-alt']"
+                  style="color: #ffd633;"
+                />
+                {{ gaskir.notelp }}
+              </p>
+              <p v-if="gaskir.status === true">
+                <font-awesome-icon
+                  :icon="['fas', 'check-circle']"
+                  style="color: green;"
+                />
+                Aktif
+              </p>
+              <p v-else-if="gaskir.status === false" style="color: gray;">
+                <font-awesome-icon :icon="['fas', 'check-circle']" />
+                Tidak Aktif
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- if window width < 1024 -->
+      <div v-else-if="windowWidth < 1024">
+        <div v-for="gaskir in Gaskir" :key="gaskir.name" class="card-group">
+          <div
+            class="card gaskir-list"
+            :id="pagination - gaskir.name"
+            style="border-radius: 10px;"
+            :per-page="3"
+          >
+            <div class="img">
+              <img
+                src="~/assets/img-person-placeholder.jpg"
+                alt=""
+                style="border-radius: 50%; height: 50px; width: 50px;"
+              />
+            </div>
+
+            <div class="text">
+              <p style="font-weight: bold;">{{ gaskir.name }}</p>
+              <p>
+                <font-awesome-icon
+                  :icon="['fas', 'mobile-alt']"
+                  style="color: #ffd633;"
+                />
+                {{ gaskir.notelp }}
+              </p>
+              <p v-if="gaskir.status === true">
+                <font-awesome-icon
+                  :icon="['fas', 'check-circle']"
+                  style="color: green;"
+                />
+                Aktif
+              </p>
+              <p v-else-if="gaskir.status === false" style="color: gray;">
+                <font-awesome-icon :icon="['fas', 'check-circle']" />
+                Tidak Aktif
+              </p>
+            </div>
+          </div>
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="row"
+            :per-page="3"
+            :aria-controls="pagination - gaskir.name"
+          ></b-pagination>
         </div>
       </div>
     </b-card>
@@ -48,6 +99,9 @@ export default {
     },
     randomPic() {
       return this.fetchRandomPic()
+    },
+    windowWidth() {
+      return this.$store.state.windowWidth.windowWidth
     },
   },
   methods: {

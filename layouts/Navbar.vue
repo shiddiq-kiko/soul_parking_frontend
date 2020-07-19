@@ -17,14 +17,14 @@
             <b-card
               border-variant="transparent"
               bg-variant="transparent"
-              style="width: 200px; height: 50px;"
+              style="width: 230px; height: 50px;"
             ></b-card
           ></b-nav-item>
           <b-nav-item v-b-toggle.sidebar-1 href="#">Menu</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
 
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="ml-auto navbar-form">
         <b-nav-item>
           <b-form class="b-form">
             <div>
@@ -62,7 +62,11 @@
                 />
               </div>
 
-              <div class="text" style="max-height: 30px;">
+              <div
+                class="text"
+                v-if="windowWidth >= 1024"
+                style="max-height: 30px;"
+              >
                 <p class="text-light" style="font-weight: bold;">
                   Husein Damar
                 </p>
@@ -75,7 +79,7 @@
     </b-navbar>
 
     <!-- Sidebar -->
-    <b-sidebar id="sidebar-1" shadow width="200px">
+    <b-sidebar id="sidebar-1" no-header shadow width="250px">
       <b-sidebar-header>
         <img src="@/assets/soulparking.png" alt="soulparking" />
       </b-sidebar-header>
@@ -187,6 +191,11 @@ export default {
     Accordion,
     AccordionItem,
   },
+  computed: {
+    windowWidth() {
+      return this.$store.state.windowWidth.windowWidth
+    },
+  },
 }
 </script>
 
@@ -199,7 +208,7 @@ export default {
 }
 .card {
   height: 30px;
-  width: 150px;
+  width: auto;
   max-height: 30px;
   background: transparent;
   border: transparent;
@@ -208,6 +217,7 @@ export default {
   justify-content: space-evenly;
   flex-direction: row;
   margin: 5px;
+  flex-wrap: nowrap;
 }
 
 p {
@@ -234,10 +244,15 @@ p {
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .b-form {
   margin: 0;
   width: 150px;
+}
+
+template p {
+  font-size: 5px;
 }
 </style>

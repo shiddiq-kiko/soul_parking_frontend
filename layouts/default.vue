@@ -11,10 +11,30 @@
 <script>
 import Navbar from './Navbar.vue'
 import Footer from './Footer.vue'
+
 export default {
   components: {
     Navbar,
     Footer,
+  },
+  watch: {
+    windowHeight(newHeight, oldHeight) {},
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
+
+  methods: {
+    onResize() {
+      this.$store.commit('windowWidth/SET_WINDOWWIDTH', window.innerWidth)
+    },
   },
 }
 </script>
