@@ -22,7 +22,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   /* width: 80%; */
   margin: 10px;
 }

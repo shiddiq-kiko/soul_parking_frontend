@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h1>Dashboard</h1>
+    <h1 v-if="windowWidth >= 1240" style="margin-left: 150px;">Dashboard</h1>
+    <h1 v-else-if="windowWidth < 1240">
+      Dashboard
+    </h1>
     <div class="card-group">
       <Stats />
       <Chart />
@@ -21,6 +24,11 @@ export default {
     Chart,
     PieChart,
   },
+  computed: {
+    windowWidth() {
+      return this.$store.state.windowWidth.windowWidth
+    },
+  },
   head() {
     return {
       title: 'Dashboard',
@@ -29,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
   max-height: 100px;
   margin-top: 10px;
@@ -38,10 +46,9 @@ h1 {
   margin: 0 auto;
   /* min-height: 100vh; */
   display: flexbox;
-  justify-content: start;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   /* text-align: center; */
   flex-wrap: wrap;
 }
@@ -72,5 +79,6 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 </style>

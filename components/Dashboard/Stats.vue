@@ -11,14 +11,14 @@
         <div class="card-body2">
           <div class="card-text">
             <b-card-title class="title">{{ stat.name }}</b-card-title>
-            <b-card-text style="font-size: 30px;">
-              {{ stat.number.toLocaleString('id') }}</b-card-text
-            >
+            <b-card-text style="font-size: 20px;">{{
+              stat.number.toLocaleString('id')
+            }}</b-card-text>
           </div>
           <div class="image">
             <font-awesome-icon
               :icon="stat.image"
-              style="opacity: 0.5; height: 100px; font-size: 50px;"
+              style="opacity: 0.5; height: 80px; font-size: 40px;"
             />
           </div>
         </div>
@@ -43,14 +43,16 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
   /* max-height: 100px; */
   /* margin: 10px; */
 }
 
 .card-group {
   margin: 10px;
-  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card-body2 {
@@ -65,19 +67,18 @@ export default {
   align-items: center;
   font-size: 100px;
 }
-.title {
-  font-size: medium;
-}
-
-.footer {
-  background-color: rgba(255, 157, 0, 0.253);
-}
 
 .card {
-  width: 200px;
-  max-width: 200px;
+  width: 15.48vw;
+  height: 150px;
+  max-height: 150px;
+  min-width: 175px;
+  max-width: 220px;
 }
 
+.title {
+  font-size: 15px;
+}
 b-card-text {
   margin-top: 10px;
 }

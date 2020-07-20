@@ -12,8 +12,21 @@
       <div class="card-img-bottom">
         <BarChart
           :data="barChartData"
-          :options="{ maintainAspectRatio: false }"
-          style="max-height: 180px;"
+          :options="{
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    stepSize: 300,
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+            responsive: false,
+            maintainAspectRatio: false,
+          }"
+          :height="150"
         />
       </div>
     </div>
@@ -63,7 +76,10 @@ h6 {
   color: sienna;
 }
 .card {
-  width: 40vw;
+  width: 32vw;
   min-width: 250px;
+  max-height: 225px;
+  height: 20vw;
+  min-height: 225px;
 }
 </style>

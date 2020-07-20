@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <h1>Tambah Petugas Parkir</h1>
+    <h1 v-if="windowWidth >= 1240" style="margin-left: 150px;">
+      Tambah Petugas Parkir
+    </h1>
+    <h1 v-else-if="windowWidth < 1240">Tambah Petugas Parkir</h1>
+    <h1 v-else-if="windowWidth < 1040" style="font-size: 4vw;">
+      Tambah Petugas Parkir
+    </h1>
     <div class="card-group">
       <Gaskir />
       <FormUpload />
@@ -12,11 +18,16 @@
 import Gaskir from '@/components/Gaskir/Gaskir.vue'
 import FormUpload from '@/components/Gaskir/FormUpload.vue'
 export default {
-  name: 'gaskir',
+  name: 'Gaskir',
   layout: 'default',
   components: {
     Gaskir,
     FormUpload,
+  },
+  computed: {
+    windowWidth() {
+      return this.$store.state.windowWidth.windowWidth
+    },
   },
   head() {
     return {
@@ -70,6 +81,8 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   /* align-items: center; */
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  margin: 0 5px;
+  width: 100%;
 }
 </style>

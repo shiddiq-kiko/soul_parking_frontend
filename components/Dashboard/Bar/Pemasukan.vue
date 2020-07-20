@@ -12,8 +12,29 @@
       <div class="card-img-bottom">
         <BarChart
           :data="barChartData"
-          :options="{ maintainAspectRatio: false }"
-          style="max-height: 180px;"
+          :options="{
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    stepSize: 300000,
+                    beginAtZero: true,
+                    callback: function (value, index, values) {
+                      if (value >= 1000) {
+                        return (
+                          (value / 1000).toFixed(1).replace(/\.0$/, '') + 'K'
+                        )
+                      }
+                      return value
+                    },
+                  },
+                },
+              ],
+            },
+            responsive: false,
+            maintainAspectRatio: false,
+          }"
+          :height="150"
         />
       </div>
     </div>
@@ -59,8 +80,11 @@ export default {
 }
 
 .card {
-  width: 40vw;
+  width: 32vw;
   min-width: 250px;
+  max-height: 225px;
+  height: 20vw;
+  min-height: 225px;
 }
 h6 {
   font-size: small;

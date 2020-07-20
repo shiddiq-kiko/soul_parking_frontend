@@ -10,7 +10,13 @@
           <DoughnutChart
             :data="doughnutChartData"
             :options="{
-              legend: { display: true },
+              legend: {
+                display: true,
+                position: 'top',
+                align: 'start',
+                boxwidth: 10,
+                fontSize: 10,
+              },
               maintainAspectRatio: false,
             }"
             style="max-height: 150px;"
@@ -58,7 +64,10 @@ export default {
 }
 
 .card {
-  width: 40vw;
+  width: 32vw;
   min-width: 250px;
+  max-height: 225px;
+  height: 20vw;
+  min-height: 225px;
 }
 </style>

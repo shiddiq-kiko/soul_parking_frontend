@@ -10,7 +10,15 @@
           <PieChart
             :data="PieChartData"
             :options="{
-              legend: { display: true },
+              legend: {
+                display: true,
+                position: 'left',
+                align: 'start',
+                labels: {
+                  boxwidth: 1,
+                  fontSize: 8,
+                },
+              },
               maintainAspectRatio: false,
             }"
             style="max-height: 150px;"
@@ -58,7 +66,10 @@ export default {
 }
 
 .card {
-  width: 40vw;
+  width: 32vw;
   min-width: 250px;
+  max-height: 225px;
+  height: 20vw;
+  min-height: 225px;
 }
 </style>
